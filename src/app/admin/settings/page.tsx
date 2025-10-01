@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { getSettings, updateSettings } from '@/lib/data';
+import { getSettings, updateSettings } from '@/lib/api-client';
 import type { Settings } from '@/types';
 import { useToast } from '@/hooks/use-toast';
 import { SettingsForm } from '@/components/admin/settings-form';
