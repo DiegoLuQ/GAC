@@ -5,7 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { cn } from '@/lib/utils';
-import { getSettings } from '@/lib/data';
+import { getSettings } from '@/lib/api-client';
 import type { Settings } from '@/types';
 
 const lora = Lora({

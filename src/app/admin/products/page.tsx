@@ -5,10 +5,9 @@ import { useRouter } from 'next/navigation';
 import {
   getProducts,
   deleteProduct,
-  addProduct,
+  createProduct,
   updateProduct,
-  getProductByCode,
-} from '@/lib/data';
+} from '@/lib/api-client';
 import type { Product } from '@/types';
 import { Button } from '@/components/ui/button';
 import {
@@ -57,9 +56,14 @@ export default function AdminProductsPage() {
 
   const fetchProducts = async () => {
     setIsLoading(true);
-    const fetchedProducts = await getProducts();
-    setProducts(fetchedProducts);
-    setIsLoading(false);
+    try {
+      const fetchedProducts = await getProducts();
+      setProducts(fetchedProducts);
+    } catch (error) {
+      toast({ variant: 'destructive', title: 'Error', description: 'No se pudieron cargar los productos desde la API.' });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleAddClick = () => {
@@ -78,14 +82,14 @@ export default function AdminProductsPage() {
   };
 
   const confirmDelete = async () => {
-    if (productToDelete) {
-      const success = await deleteProduct(productToDelete.id);
-      if (success) {
-        toast({ title: 'Producto eliminado', description: `El producto ${productToDelete.code} ha sido eliminado.` });
-        fetchProducts();
-      } else {
-        toast({ variant: 'destructive', title: 'Error', description: 'No se pudo eliminar el producto.' });
-      }
+    if (!productToDelete) return;
+    try {
+      await deleteProduct(productToDelete.id);
+      toast({ title: 'Producto eliminado', description: `El producto ${productToDelete.code} ha sido eliminado.` });
+      fetchProducts();
+    } catch (error) {
+      toast({ variant: 'destructive', title: 'Error', description: 'No se pudo eliminar el producto.' });
+    } finally {
       setIsDeleteConfirmOpen(false);
       setProductToDelete(null);
     }
@@ -99,12 +103,7 @@ export default function AdminProductsPage() {
         toast({ title: 'Producto actualizado', description: 'El producto ha sido actualizado exitosamente.' });
       } else {
         // Create
-        const existingProduct = await getProductByCode(data.code);
-        if (existingProduct) {
-          toast({ variant: 'destructive', title: 'Error', description: `El código "${data.code}" ya está en uso.` });
-          return;
-        }
-        await addProduct(data as Omit<Product, 'id'>);
+        await createProduct(data as Omit<Product, 'id'>);
         toast({ title: 'Producto creado', description: 'El nuevo producto ha sido añadido.' });
       }
       setIsFormOpen(false);
@@ -131,6 +130,7 @@ export default function AdminProductsPage() {
               <DialogTitle>{selectedProduct ? 'Editar Producto' : 'Registrar Nuevo Producto'}</DialogTitle>
             </DialogHeader>
             <ProductForm
+              key={selectedProduct ? selectedProduct.id : 'new'}
               product={selectedProduct}
               onSubmit={handleFormSubmit}
               onCancel={() => setIsFormOpen(false)}

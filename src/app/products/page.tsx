@@ -1,5 +1,5 @@
 import { ProductList } from '@/components/products/product-list';
-import { getProducts, getSettings } from '@/lib/data';
+import { getProducts, getSettings } from '@/lib/api-client';
 import type { Product, Settings } from '@/types';
 
 export default async function ProductsPage() {
