@@ -1,0 +1,52 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "Mano sosteniendo una huella de mascota",
+      "imageUrl": "https://images.unsplash.com/photo-1548681528-6a5c45b66b42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwZXQlMjBsYXQlMjBsb3ZlfGVufDB8fHx8MTc1OTI5MjQwOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pet love"
+    },
+    {
+      "id": "product-1-a",
+      "description": "Ánfora de cerámica blanca",
+      "imageUrl": "https://images.unsplash.com/photo-1650813443486-99c4b27e2027?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjZXJhbWljJTIwdXJufGVufDB8fHx8MTc1OTIwMjI0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ceramic urn"
+    },
+    {
+      "id": "product-1-b",
+      "description": "Detalle de ánfora de cerámica",
+      "imageUrl": "https://images.unsplash.com/photo-1650813998326-94b124edcd4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjZXJhbWljJTIwdXJufGVufDB8fHx8MTc1OTIwMjI0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ceramic urn"
+    },
+    {
+      "id": "product-2-a",
+      "description": "Ánfora de madera",
+      "imageUrl": "https://images.unsplash.com/photo-1646083571194-ae416465edfd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3b29kZW4lMjB1cm58ZW58MHx8fHwxNzU5MjAyMjQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wooden urn"
+    },
+    {
+      "id": "product-3-a",
+      "description": "Ánfora biodegradable",
+      "imageUrl": "https://images.unsplash.com/photo-1750751860244-defb08e07f00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiaW9kZWdyYWRhYmxlJTIwdXJufGVufDB8fHx8MTc1OTIwMjI0OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "biodegradable urn"
+    },
+    {
+      "id": "product-4-a",
+      "description": "Ánfora de metal",
+      "imageUrl": "https://images.unsplash.com/photo-1758092320133-cd36eea79f46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtZXRhbCUyMHVybnxlbnwwfHx8fDE3NTkyMDIyNDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "metal urn"
+    },
+    {
+      "id": "product-5-a",
+      "description": "Mini-ánfora de recuerdo",
+      "imageUrl": "https://images.unsplash.com/photo-1758092320133-cd36eea79f46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8a2VlcHNha2UlMjB1cm58ZW58MHx8fHwxNzU5MjAyMjQ3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "keepsake urn"
+    },
+    {
+      "id": "product-6-a",
+      "description": "Ánfora de cristal",
+      "imageUrl": "https://images.unsplash.com/photo-1509511715017-077da45196ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxnbGFzcyUyMHVybnxlbnwwfHx8fDE3NTkyMDIyNDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "glass urn"
+    }
+  ]
+}
