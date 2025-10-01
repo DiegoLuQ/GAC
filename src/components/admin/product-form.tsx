@@ -28,8 +28,8 @@ const formSchema = z.object({
   price: z.coerce.number().min(0, 'El precio debe ser un número positivo.'),
   availability: z.boolean(),
   color: z.string().min(1, 'El color es requerido.'),
-  tags: z.string().transform((val) => val.split(',').map(tag => tag.trim()).filter(Boolean)),
-  images: z.string().transform((val) => val.split(',').map(url => url.trim()).filter(Boolean)),
+  tags: z.array(z.string()),
+  images: z.array(z.string()),
 });
 
 type ProductFormValues = z.infer<typeof formSchema>;
@@ -48,8 +48,8 @@ export function ProductForm({ product, onSubmit, onCancel }: ProductFormProps) {
     price: product?.price || 0,
     availability: product?.availability ?? true,
     color: product?.color || '',
-    tags: product?.tags.join(', ') || '',
-    images: product?.images.join(', ') || '',
+    tags: product?.tags || [],
+    images: product?.images || [],
   };
 
   const form = useForm<ProductFormValues>({
@@ -121,7 +121,11 @@ export function ProductForm({ product, onSubmit, onCancel }: ProductFormProps) {
             <FormItem>
               <FormLabel>Etiquetas</FormLabel>
               <FormControl>
-                <Input placeholder="moderno, ceramica, grande" {...field} />
+                <Input
+                  placeholder="moderno, ceramica, grande"
+                  value={Array.isArray(field.value) ? field.value.join(', ') : ''}
+                  onChange={(e) => field.onChange(e.target.value.split(',').map(tag => tag.trim()).filter(Boolean))}
+                />
               </FormControl>
               <FormDescription>Separa las etiquetas con comas.</FormDescription>
               <FormMessage />
@@ -135,7 +139,11 @@ export function ProductForm({ product, onSubmit, onCancel }: ProductFormProps) {
             <FormItem>
               <FormLabel>URLs de Imágenes</FormLabel>
               <FormControl>
-                <Textarea placeholder="https://url.com/imagen1.jpg, https://url.com/imagen2.jpg" {...field} />
+                <Textarea
+                  placeholder="https://url.com/imagen1.jpg, https://url.com/imagen2.jpg"
+                  value={Array.isArray(field.value) ? field.value.join(', ') : ''}
+                  onChange={(e) => field.onChange(e.target.value.split(',').map(url => url.trim()).filter(Boolean))}
+                />
               </FormControl>
                <FormDescription>Separa las URLs con comas.</FormDescription>
               <FormMessage />

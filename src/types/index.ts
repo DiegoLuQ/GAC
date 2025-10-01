@@ -10,6 +10,7 @@ export type Product = {
 };
 
 export type Settings = {
+  id?: string;
   heroImageUrl: string;
   whatsappNumber: string;
   heroTitle: string;
